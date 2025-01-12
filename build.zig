@@ -14,10 +14,10 @@ fn linker(exe: *std.Build.Step.Compile, files: []const []const u8, b: *std.Build
     // Libs
     if (target.query.isNativeOs() and target.result.os.tag == .windows) {
         // Solution 1
-        // const sdl_dep = b.dependency("SDL", .{ // Add libs as needed
-        //     .target = target,
-        // });
-        // exe.linkLibrary(sdl_dep.artifact("SDL2"));
+        const sdl_dep = b.dependency("raylib-zig", .{ // Add libs as needed
+            .target = target,
+        });
+        exe.linkLibrary(sdl_dep.artifact("raylib"));
 
         // Solution 2 (make sure you place all files in the directory, not just the lib files (unless you know what you're doing))
         // exe.addLibraryPath(b.path("lib/SDL3-3.1.6/lib/x64/"));
