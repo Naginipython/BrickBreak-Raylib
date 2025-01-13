@@ -13,6 +13,9 @@ class Game {
   // Vector2 panel;
   Rectangle panel;
   Ball ball;
+  int lives = 3;
+  bool gameOver = false;
+  int score = 0;
 public:
   // Game();
   Game(int speed);
